@@ -1,5 +1,7 @@
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
+
+//template generated for adding a todo element to dom
 const genTemplate = todo => {
     //using template strings
     const html = `<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -10,7 +12,7 @@ const genTemplate = todo => {
     list.innerHTML += html;
 }
 
-
+//adding to-dos
 addForm.addEventListener('submit', (e) => {
     e.preventDefault();
     //doesn't let spaces to be entered as it trims it
@@ -21,4 +23,15 @@ addForm.addEventListener('submit', (e) => {
         //resets the form
         addForm.reset();
     }
+});
+
+//deleting to-dos
+list.addEventListener('click', e => {
+    //checks class list from target element
+    if(e.target.classList.contains('delete')){
+        e.target.parentElement.remove();
+    }
 })
+
+
+
