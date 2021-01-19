@@ -9,7 +9,7 @@
 :root{
     --black-primary: #222831;
     --silver-primary: #dddddd;
-    --blue-secondary: #30475e;
+    --blue-secondary:rgba(48, 71, 94, 0.5);
     --red-accent: rgba(240, 84, 84, 0.8);
 }
 
@@ -30,7 +30,7 @@ input[type=text], input[type=text]:focus{
 }
 
 .todos li{
-    background: var(--red-accent);
+    background: var(--blue-secondary);
 }
 
 .delete{
