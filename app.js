@@ -1,5 +1,6 @@
 const addForm = document.querySelector('.add');
 const list = document.querySelector('.todos');
+const search = document.querySelector('.search input');
 
 //template generated for adding a todo element to dom
 const genTemplate = todo => {
@@ -32,6 +33,28 @@ list.addEventListener('click', e => {
         e.target.parentElement.remove();
     }
 })
+
+//filter and search
+
+const filterTodos = term => {
+    //converting HTML Collection to an array
+    Array.from(list.children)
+        .filter((todo) => !todo.textContent.toLowerCase().includes(term))
+        //negate to return stuff that don't include the term
+        .forEach((todo) => todo.classList.add('filtered'))
+
+    Array.from(list.children)
+        .filter((todo) => todo.textContent.toLowerCase().includes(term))
+        //include the term
+        .forEach((todo) => todo.classList.remove('filtered'))    
+};
+
+//keyup event
+search.addEventListener('keyup', () => {
+    //convert to lowercase
+    const term = search.value.trim().toLowerCase();
+    filterTodos(term);
+});
 
 
 
